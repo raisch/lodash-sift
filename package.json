@@ -1,0 +1,25 @@
+{
+  "name": "lodash-paths",
+  "version": "0.1.0",
+  "description": "Returns an object composed of values from selected paths.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raisch/lodash-paths.git"
+  },
+  "keywords": [
+    "lodash",
+    "mixin",
+    "object",
+    "paths"
+  ],
+  "author": "Rob Raisch <raisch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raisch/lodash-paths/issues"
+  },
+  "homepage": "https://github.com/raisch/lodash-paths"
+}
