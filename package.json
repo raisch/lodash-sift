@@ -1,6 +1,6 @@
 {
   "name": "lodash-sift",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Returns an object composed of values from selected paths into an existing object.",
   "main": "index.js",
   "scripts": {
