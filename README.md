@@ -1,6 +1,12 @@
 # lodash-sift
+
 A lodash "mixin" that returns a new object constructed using supplied paths into an
 existing object.
+
+[![npm version](https://badge.fury.io/js/lodash-sift.svg)](http://badge.fury.io/js/lodash-sift)
+[![Build Status](https://travis-ci.org/raisch/lodash-sift.svg?branch=master)](https://travis-ci.org/raisch/lodash-sift)
+[![Dependencies Status](https://david-dm.org/raisch/lodash-sift.svg)](https://david-dm.org/raisch/lodash-sift)
+[![DevDependencies Status](https://david-dm.org/raisch/lodash-sift/dev-status.svg)](https://david-dm.org/raisch/lodash-sift#info=devDependencies)
 
 ### Description
 
