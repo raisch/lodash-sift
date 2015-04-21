@@ -1,10 +1,12 @@
 # lodash-sift
-Returns a new object constructed using paths into an existing object.
+A lodash "mixin" that returns a new object constructed using supplied paths into an
+existing object.
 
 ### Description
 
-Given a data object and a set of one or more dot-separated paths, `_.sift()` will return
-a new object composed of only the values found at the selected paths.
+Given a data object and a set of one or more dot-separated paths, `_.sift()` will
+construct and return a new object composed of only the values found at the selected
+paths.
 
 ### Example
 
@@ -36,4 +38,25 @@ var paths = [ // paths to extract from data
 _.sift(data, paths)
 
 // => { a: { b: { d: 2 }, e: { g: 4 } }, h: 7, i: { name: 'bar' } }
+```
+
+All paths must be terminal (they must end up at a non-object.)
+
+If a path is non-terminal, it will result in an undefined value in
+the result, as in:
+
+```javascript
+
+var data={a:{b:{c:1}}};
+
+_.sift(data,'a.b') // => { a: { b: undefined } }
+```
+
+If a path does not exist, it will be undefined in the result, as in:
+
+```javascript
+
+var data={ a: { b: { c: 1 } } };
+
+_.sift(data,'a.b.foo') // => { a: { b: { foo: undefined } } }
 ```
