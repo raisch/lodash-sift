@@ -9,8 +9,9 @@ a new object composed of only the values found at the selected paths.
 ### Example
 
 ```javascript
-var _ = require('lodash-sift'), // returns lodash with sift mixin
-    data = {
+var _ = require('lodash-sift'); // returns lodash with sift mixin
+
+var data = { // object from which to extract paths
       a: {
         b: {
           c: 1,
@@ -23,8 +24,9 @@ var _ = require('lodash-sift'), // returns lodash with sift mixin
       },
       h: [5, 6, 7],
       i: [{name: 'foo'}, {name: 'bar'}]
-    },
-    paths = [
+    };
+    
+var paths = [ // paths to extract from data
       'a.b.d',
       'a.e.g',
       'h[2],
@@ -32,5 +34,6 @@ var _ = require('lodash-sift'), // returns lodash with sift mixin
     ];
 
 _.sift(data, paths)
+
 // => { a: { b: { d: 2 }, e: { g: 4 } }, h: 7, i: { name: 'bar' } }
 ```
