@@ -8,25 +8,29 @@ a new object composed of only the values found at the selected paths.
 
 ### Example
 
-    var data = {
-          a: {
-            b: {
-              c: 1,
-              d: 2
-            },
-            e: {
-              f: 3,
-              g: 4
-            }
-          },
-          h: [5, 6, 7],
-          i: [{name: 'foo'}, {name: 'bar'}]
+```javascript
+var _ = require('lodash-sift'), // returns lodash with sift mixin
+    data = {
+      a: {
+        b: {
+          c: 1,
+          d: 2
         },
-        paths = [
-          'a.b.d',
-          'a.e.g',
-          'h[2],
-          'i[1].name'
-        ];
+        e: {
+          f: 3,
+          g: 4
+        }
+      },
+      h: [5, 6, 7],
+      i: [{name: 'foo'}, {name: 'bar'}]
+    },
+    paths = [
+      'a.b.d',
+      'a.e.g',
+      'h[2],
+      'i[1].name'
+    ];
 
-    _.sift(data, paths) // => { a: { b: { d: 2 }, e: { g: 4 } }, h: 7, i: { name: 'bar' } }
+_.sift(data, paths)
+// => { a: { b: { d: 2 }, e: { g: 4 } }, h: 7, i: { name: 'bar' } }
+```

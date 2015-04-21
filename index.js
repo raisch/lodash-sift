@@ -4,18 +4,7 @@
 
 'use strict';
 
-var root = this,
-    lodash = root._;
-
-if ('object' !== typeof lodash && 'function' === typeof require) {
-  lodash = require('lodash');
-}
-
-if ('function' !== typeof lodash) {
-  throw Error('lodash-sift requires lodash');
-}
-
-var _ = lodash;
+var _ = require('lodash');
 
 /**
  * Returns a new object composed of specified paths.
@@ -50,12 +39,12 @@ var sift = function (obj, paths, delim) {
         curr_obj = obj;
 
     _.map(path.split(delim), function (part) {
-      if(part.match(/^(\w+?)\[(\d+)\]$/)){
-        var key=RegExp.$1, i=RegExp.$2;
-        if(_.isArray(curr_obj[key])){
-          curr_obj=curr_obj[key];
+      if (part.match(/^(\w+?)\[(\d+)\]$/)) {
+        var key = RegExp.$1, i = RegExp.$2;
+        if (_.isArray(curr_obj[key])) {
+          curr_obj = curr_obj[key];
         }
-        curr_result[key]=curr_obj[i];
+        curr_result[key] = curr_obj[i];
       }
       else {
         curr_obj = curr_obj[part];
@@ -67,8 +56,6 @@ var sift = function (obj, paths, delim) {
   }).reduce(_.merge);
 };
 
-_.mixin({
-  sift: sift
-});
+_.mixin({sift: sift});
 
 module.exports = _;
