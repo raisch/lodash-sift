@@ -27,6 +27,7 @@ var sift = function (obj, paths, delim) {
   if (!_.isObject(obj)) {
     throw new Error('requires an object');
   }
+
   if (!_.isArray(paths)) {
     throw new Error('requires a path or array of paths');
   }

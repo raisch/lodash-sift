@@ -4,7 +4,7 @@
   "description": "Returns an object composed of values from selected paths.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/raisch/lodash-paths/issues"
   },
-  "homepage": "https://github.com/raisch/lodash-paths"
+  "homepage": "https://github.com/raisch/lodash-paths",
+  "dependencies": {
+    "lodash": "^3.7.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4"
+  }
 }
