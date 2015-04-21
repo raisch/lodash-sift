@@ -50,15 +50,30 @@ describe('lodash sift',function(){
   });
 
   it('should get an array terminal path',function(){
-    var actual= _.sift(data,'h.0'),
+    var actual= _.sift(data,'h[0]'),
         expected={h:5};
     assert(_.isEqual(actual,expected));
   });
 
   it('should get a complex group of paths',function(){
-    var actual= _.sift(data,['a.b.d','a.e.f','i.1.name']),
-        expected = { a: { b: { d: 2 }, e: { f: 3 } }, i: { name: 'bar' } };
+    var actual= _.sift(data,['a.b.d','a.e.f','h[1]','i[1].name']),
+        expected = { a: { b: { d: 2 }, e: { f: 3 } }, h: 6, i: { name: 'bar' } };
+    assert(_.isEqual(actual,expected));
+  });
+
+  it('should not return a non-existant path',function(){
+    var actual= _.sift(data,['z']),
+        expected = { z: undefined };
+    assert(_.isEqual(actual,expected));
+  });
+
+  it('should not return a non-existant sub-path',function(){
+    var actual= _.sift(data,['a.b.name']),
+        expected = { a: { b: { name: undefined } } };
     assert(_.isEqual(actual,expected));
   });
 
 });
+
+
+

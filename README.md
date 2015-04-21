@@ -1,9 +1,32 @@
 # lodash-sift
-Returns an object consisting of only the selected paths.
+Returns a new object constructed using paths into an existing object.
+
+### Description
+
+Given a data object and a set of one or more dot-separated paths, `_.sift()` will return
+a new object composed of only the values found at the selected paths.
 
 ### Example
 
-    var data={ a: { b: { c: 1, d: 2 }, e: { f: 3, g: 4 } }, h: [ 5, 6, 7 ] },
-        paths=[ 'a.b.c', 'a.e.g', 'h.1' ];
+    var data = {
+          a: {
+            b: {
+              c: 1,
+              d: 2
+            },
+            e: {
+              f: 3,
+              g: 4
+            }
+          },
+          h: [5, 6, 7],
+          i: [{name: 'foo'}, {name: 'bar'}]
+        },
+        paths = [
+          'a.b.d',
+          'a.e.g',
+          'h[2],
+          'i[1].name'
+        ];
 
-    _.sift(data,paths) => { a: { b: { c: 1 }, e: { g: 4 } }, h: 6 }
+    _.sift(data, paths) // => { a: { b: { d: 2 }, e: { g: 4 } }, h: 7, i: { name: 'bar' } }

@@ -4,7 +4,18 @@
 
 'use strict';
 
-var _ = require('lodash');
+var root = this,
+    lodash = root._;
+
+if ('object' !== typeof lodash && 'function' === typeof require) {
+  lodash = require('lodash');
+}
+
+if ('function' !== typeof lodash) {
+  throw Error('lodash-sift requires lodash');
+}
+
+var _ = lodash;
 
 /**
  * Returns a new object composed of specified paths.
@@ -21,16 +32,17 @@ var _ = require('lodash');
  *   sift(data,paths) => { a: { b: { c: 1 }, e: { g: 4 } }, h: 5 }
  */
 var sift = function (obj, paths, delim) {
-  paths = _.isArray(paths) ? paths : [paths];
-  delim = delim || '.';
 
   if (!_.isObject(obj)) {
     throw new Error('requires an object');
   }
 
+  paths = _.isArray(paths) ? paths : [paths];
   if (!_.isArray(paths)) {
     throw new Error('requires a path or array of paths');
   }
+
+  delim = delim || '.';
 
   return _.map(paths, function (path) {
     var result = {},
@@ -38,8 +50,12 @@ var sift = function (obj, paths, delim) {
         curr_obj = obj;
 
     _.map(path.split(delim), function (part) {
-      if (_.isArray(curr_obj)) {
-        curr_obj = curr_obj[part];
+      if(part.match(/^(\w+?)\[(\d+)\]$/)){
+        var key=RegExp.$1, i=RegExp.$2;
+        if(_.isArray(curr_obj[key])){
+          curr_obj=curr_obj[key];
+        }
+        curr_result[key]=curr_obj[i];
       }
       else {
         curr_obj = curr_obj[part];
@@ -55,4 +71,4 @@ _.mixin({
   sift: sift
 });
 
-module.exports=_;
+module.exports = _;
