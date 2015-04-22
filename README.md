@@ -37,7 +37,7 @@ var data = { // object from which to extract paths
 var paths = [ // paths to extract from data
       'a.b.d',
       'a.e.g',
-      'h[2],
+      'h[2]',
       'i[1].name'
     ];
 
