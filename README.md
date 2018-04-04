@@ -1,3 +1,5 @@
+# *DEPRECATED* in favor of lodash.get()
+
 # lodash-sift
 
 A lodash "mixin" that returns a new object constructed using supplied paths into an
