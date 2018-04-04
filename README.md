@@ -1,8 +1,6 @@
-# *DEPRECATED* in favor of lodash.get()
-
 # lodash-sift
 
-A lodash "mixin" that returns a new object constructed using supplied paths into an
+A lodash "mixin" that returns a new object constructed using one or more supplied paths into an
 existing object.
 
 [![npm version](https://badge.fury.io/js/lodash-sift.svg)](http://badge.fury.io/js/lodash-sift)
